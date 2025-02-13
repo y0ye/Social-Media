@@ -1,0 +1,29 @@
+.postcontainer {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000; /* Above the overlay */
+    background-color: bisque;
+    padding: 1rem;
+    width: 100%;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.post {
+    align-self: center;
+    justify-self: center;
+    padding: 1rem; /* Added padding for better spacing */
+    text-align: center; /* Centers text inside */
+    width: 90%; /* Ensures it adapts well */
+}
+
+.toppost {
+    font-weight: bold; /* Emphasizes top post */
+    font-size: 1.2rem; /* Slightly larger for hierarchy */
+    text-align: center;
+    padding-bottom: 0.5rem; /* Adds spacing below */
+    border-bottom: 2px solid rgba(0, 0, 0, 0.2); /* Separator for clarity */
+}

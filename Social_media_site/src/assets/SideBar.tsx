@@ -10,71 +10,108 @@ import {
 } from '@tabler/icons-react';
 import { Drawer, Button, DrawerTitle, DrawerContent, DrawerCloseButton, DrawerHeader, DrawerBody, CloseButton, ActionIcon } from '@mantine/core';
 
-export const dataOptions = [
-  { link: '', label: 'Home', icon: IconFlame },
-  { link: '', label: 'Security', icon: IconLock },
-  { link: '', label: 'Upload Images', icon: IconDatabaseImport },
-  { link: '', label: 'Settings', icon: IconSettings },
-  { link: '', label: 'Logout', icon: IconLogout },
-];
-
-
 export default function SideBar() {
-    const [active, setActive] = useState('Billing');
-  
+  const [active, setActive] = useState('Billing');
   const [opened, { open, close }] = useDisclosure(false);
-
-  const options = dataOptions.map((item) => (
-    <a
-      className={classes.link}
-      data-active={item.label === active || undefined}
-      href={item.link}
-      key={item.label}
-      onClick={(event) => {
-        event.preventDefault();
-        setActive(item.label);
-      }}
-    >
-      <item.icon className={classes.linkIcon} stroke={1.5} />
-      <span>{item.label}</span>
-    </a>
-  ));
 
   return (
     <>
       <Drawer
         opened={opened}
         onClose={close}
-        styles= {{
-          root:{
-            position:'fixed',
-            height:'fit-content',
+        styles={{
+          root: {
+            position: 'fixed',
+            height: 'fit-content',
             left: 0,
-            zIndex:1000,
+            zIndex: 990,
           },
           content: {
-            backgroundColor:'bisque',
-            display:'flex',
-            flexDirection:'column',
-
+            backgroundColor: 'bisque',
+            display: 'flex',
+            flexDirection: 'column',
           },
-          title:{
-            marginTop:'5rem',
-            marginLeft:0,
-            textAlign:'center'
+          title: {
+            marginTop: '5rem',
+            marginLeft: 0,
+            textAlign: 'center',
           },
-          body:{
-            display:'flex',
-            flexDirection:'column',
-            gap:'1rem',
+          body: {
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '1rem',
           },
-          close: {
-          }
+          close: {},
         }}
       >
         <DrawerContent>
           <DrawerTitle>Cat Posting</DrawerTitle>
-          <DrawerBody>{options}</DrawerBody>
+          <DrawerBody>
+            <a
+              className={classes.link}
+              data-active={'Home' === active || undefined}
+              href=""
+              onClick={(event) => {
+                event.preventDefault();
+                setActive('Home');
+              }}
+            >
+              <IconFlame className={classes.linkIcon} stroke={1.5} />
+              <span>Home</span>
+            </a>
+
+            <a
+              className={classes.link}
+              data-active={'Security' === active || undefined}
+              href=""
+              onClick={(event) => {
+                event.preventDefault();
+                setActive('Security');
+              }}
+            >
+              <IconLock className={classes.linkIcon} stroke={1.5} />
+              <span>Security</span>
+            </a>
+
+            <a
+              className={classes.link}
+              data-active={'Create Post' === active || undefined}
+              href=""
+              onClick={(event) => {
+                event.preventDefault();
+                setActive('Create Post');
+              }}
+            >
+              <IconDatabaseImport className={classes.linkIcon} stroke={1.5} />
+              <span>Create Post</span>
+            </a>
+
+            <a
+              className={classes.link}
+              data-active={'Settings' === active || undefined}
+              href=""
+              onClick={(event) => {
+                event.preventDefault();
+                setActive('Settings');
+              }}
+            >
+              <IconSettings className={classes.linkIcon} stroke={1.5} />
+              <span>Settings</span>
+            </a>
+
+            <a
+              className={classes.link}
+              data-active={'Logout' === active || undefined}
+              href=""
+              onClick={(event) => {
+                event.preventDefault();
+                setActive('Logout');
+              }}
+            >
+              <IconLogout className={classes.linkIcon} stroke={1.5} />
+              <span>Logout</span>
+            </a>
+          </DrawerBody>
         </DrawerContent>
       </Drawer>
 

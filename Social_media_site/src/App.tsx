@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Post from './assets/Post.tsx';
 import SideBar from './assets/SideBar.tsx'
 import classes from './App.module.css'
+import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import {
   IconFlame,
   IconDatabaseImport,
@@ -10,6 +11,7 @@ import {
   IconSettings,
 } from '@tabler/icons-react';
 import { px } from '@mantine/core';
+import CreatePost from './assets/CreatePost.tsx';
 
 const dataOptions = [
   { link: '', label: 'Home', icon: IconFlame },
@@ -22,7 +24,7 @@ const dataOptions = [
 
 function App() {
 
-  const isMobile = window.screen.width <= 425;
+  const isMobile = window.screen.width <= 520;
 
   const [active, setActive] = useState('Billing');
 
@@ -43,7 +45,11 @@ function App() {
   ));
 
   return (
-    <>
+    <Router>
+      <Routes>
+        <Route path="/App" element={<App/>}/>
+        <Route path="/createPost" element={<CreatePost/>}/>
+      </Routes>
       <div>
         <div className={classes.container}>
           {isMobile && <SideBar></SideBar>}
@@ -53,26 +59,79 @@ function App() {
               <h4>v0.0.1</h4>
             </div>
             <div className={classes.navbaroption}>
-              {options}
+            <a
+              className={classes.link}
+              data-active={'Home' === active || undefined}
+              href=""
+              onClick={(event) => {
+                event.preventDefault();
+                setActive('Home');
+              }}
+            >
+              <IconFlame className={classes.linkIcon} stroke={1.5} />
+              <Link to="/">Home</Link>
+            </a>
+
+            <a
+              className={classes.link}
+              data-active={'Security' === active || undefined}
+              href=""
+              onClick={(event) => {
+                event.preventDefault();
+                setActive('Security');
+              }}
+            >
+              <IconLock className={classes.linkIcon} stroke={1.5} />
+              <span>Security</span>
+            </a>
+
+            <a
+              className={classes.link}
+              data-active={'Create Post' === active || undefined}
+              href=""
+              onClick={(event) => {
+                event.preventDefault();
+                setActive('Create Post');
+              }}
+            >
+              <IconDatabaseImport className={classes.linkIcon} stroke={1.5} />
+              <Link to="/createPost">Create Post</Link>
+            </a>
+
+            <a
+              className={classes.link}
+              data-active={'Settings' === active || undefined}
+              href=""
+              onClick={(event) => {
+                event.preventDefault();
+                setActive('Settings');
+              }}
+            >
+              <IconSettings className={classes.linkIcon} stroke={1.5} />
+              <span>Settings</span>
+            </a>
+
+            <a
+              className={classes.link}
+              data-active={'Logout' === active || undefined}
+              href=""
+              onClick={(event) => {
+                event.preventDefault();
+                setActive('Logout');
+              }}
+            >
+              <IconLogout className={classes.linkIcon} stroke={1.5} />
+              <span>Logout</span>
+            </a>
             </div>
           </div>
           <div className={classes.maincontent}>
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
             <Post/>
             
           </div>
         </div>
       </div>
-    </>
+    </Router>
   )
 }
 
