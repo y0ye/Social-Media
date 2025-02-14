@@ -14,7 +14,8 @@ export default function CreatePost() {
             const formData = new FormData();
             formData.append("title", title);
             formData.append("description", description);
-    
+            
+
             if (photo) {
                 console.log("Uploading photo:", photo);
                 formData.append("photo", photo, photo.name); // Ensure name is included

@@ -22,13 +22,12 @@ app.post("/posts", upload.single("photo"), async (req, res) => {
         }
 
         // Upload file to AWS S3
-        const awslink = await aws.uploadFileToAwsS3({
+        let awslink = await aws.uploadFileToAwsS3({
             fileName: file.originalname,
             filePath: file.path,
         });
 
-        console.log(awslink);
-
+        awslink = "https://photos-catposting.s3.us-east-1.amazonaws.com/sub1/" + file.originalname;
 
         // Insert into database with AWS S3 file URL
         const newPost = await pool.query(

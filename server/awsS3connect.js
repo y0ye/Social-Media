@@ -24,116 +24,21 @@ exports.awsFolderNames = {
 
 // Upload function using `Upload` utility
 exports.uploadFileToAws = async (fileName, filePath) => {
-
-    filePath = "C:/Users/obenn/OneDrive/Pictures/Screenshots/" + fileName;
-
-    try {
-        // ✅ Ensure the file exists before proceeding
-        if (!fs.existsSync(filePath)) {
-            console.error("File does not exist:", filePath);
-            return "error";
-        }
-
-        // ✅ Read the file as a stream
-        const fileStream = fs.createReadStream(filePath);
-
-        // ✅ Ensure correct MIME type (adjust based on file format)
-        const contentType = "image/*";
-
-        // Upload using the `Upload` class (recommended for large files)
-        const uploadParams = {
-            Bucket: process.env.AWS_BUCKET_NAME,
-            Key: fileName,
-            Body: fileStream,
-            ContentType: contentType,
-        };
-
-        const upload = new Upload({
-            client: s3Client,
-            params: uploadParams,
-        });
-
-        const result = await upload.done();
-        console.log("File uploaded successfully:");
-
-        return result.Location; // ✅ Return the public URL
-
-    } catch (err) {
-        console.error("Error uploading file:", err);
-        return "error";
-    }
-};
-// Export function to get a signed URL for downloading a file from AWS S3
-exports.getFileUrlFromAws = async (fileName, expireTime = null) => {
-    try {
-        // Check if the file is available in the AWS S3 bucket
-        const check = await this.isFileAvailableInAwsBucket(fileName); 
-
-        if (check) {
-            // Create a GetObjectCommand to retrieve the file from S3
-            const command = new GetObjectCommand({
-                Bucket: process.env.AWS_BUCKET_NAME, // Specify the AWS S3 bucket name
-                Key: fileName, // Specify the file name
-            });
-
-            // Generate a signed URL with expiration time if provided
-            if (expireTime != null) {
-                const url = await getSignedUrl(s3Client, command, { expiresIn: expireTime });
-                return url;
-            } else {
-                // Generate a signed URL without expiration time
-                const url = await getSignedUrl(s3Client, command);
-                return url;
-            }
-        } else {
-            // Return an error message if the file is not available in the bucket
-            return "error";
-        }
-    } catch (err) {
-        // Handle any errors that occur during the process
-        console.log('here2');
-
-        console.log("error ::", err);
-        return "error";
-    }
-};
-
-exports.isFileAvailableInAwsBucket = async (fileName) => {
-  try {
-      // Check if the object exists
-      await s3Client.send(new HeadObjectCommand({
-          Bucket: process.env.AWS_BUCKET_NAME,
-          Key: fileName,
-      }));
-
-      // If the object exists, return true
-      return true;
-  } catch (err) {
-      if (err.name === 'NotFound') {
-          // File not found in AWS bucket, return false
-          return false;
-      } else {
-          // Handle other errors
-          return false;
-      }
-  }
-};
-
-exports.deleteFileFromAws = async (fileName) => {
     try {
       // Configure the parameters for the S3 upload
       const uploadParams = {
         Bucket: process.env.AWS_BUCKET_NAME,
         Key: fileName,
+        Body: fs.createReadStream(filePath),
+        ACL: 'public-read' 
       };
+  
       // Upload the file to S3
-        await s3Client.send(new DeleteObjectCommand(uploadParams)).then((data)=>{
+        await s3Client.send(new PutObjectCommand(uploadParams)).then((data)=>{
       });
   
     } catch (err) {
-        console.log('here3');
-
       console.error('Error ', err);
-      return  'error';
+      return 'error';
     }
 };

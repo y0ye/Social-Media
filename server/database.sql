@@ -19,7 +19,9 @@ CREATE TABLE post(
 CREATE TABLE Comments(
     comment_id SERIAL PRIMARY KEY,
     message VARCHAR(256),
-    FOREIGN KEY user_id REFERENCES Users(username),
-    FOREIGN KEY post_id REFERENCES post(post_id)
+    user_id VARCHAR(25),
+    post_id int,
+    FOREIGN KEY (user_id) REFERENCES Users(username),
+    FOREIGN KEY (post_id) REFERENCES post(post_id)
 );
 
