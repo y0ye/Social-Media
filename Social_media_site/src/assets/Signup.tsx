@@ -7,7 +7,7 @@ export default function Signup() {
     const [password, setPassword] = useState<string>("");
     const [error, setError] = useState<string>("");
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e:any) => {
         e.preventDefault();
         setError(""); // Clear any previous errors before submitting
 
@@ -18,20 +18,21 @@ export default function Signup() {
                 body: JSON.stringify({ username, password }),
             });
 
-            const result = await response.json();
+            const result = await response
 
             if (!response.ok) {
-                throw new Error(result.error || "An unexpected error occurred");
+                setError("Error- user exists"); // Show the correct error message
+                throw new Error("Error or User Already exists");
+            }
+            else{
+                console.log("User successfully created:", result);
+                setUsername("");  // Clear username input
+                setPassword("");  // Clear password input
+                setError("Success");     // Clear error message
             }
 
-            console.log("User successfully created:", result);
-
-            setUsername("");  // Clear username input
-            setPassword("");  // Clear password input
-            setError("Success");     // Clear error message
-
         } catch (err) {
-            setError("Fail"); // Show the correct error message
+            setError("Server Error or User Exists"); // Show the correct error message
             console.error("Error submitting post:", err);
         }
     };
