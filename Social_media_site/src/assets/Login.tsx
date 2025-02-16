@@ -37,6 +37,7 @@ export default function Login() {
 
             else{
                 setStatus("User does not exist or invalid password!"); // Show the correct error message
+                setTimeout(() => navigate("/"), 1000);
             }
 
         } catch (err) {

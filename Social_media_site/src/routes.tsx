@@ -8,7 +8,7 @@ import CreatePost from './assets/CreatePost.tsx';
 const AppRoutes = () => {
   return (
     <Routes>
-      <Route path="/App" element={<App />} />
+      <Route path="/" element={<App/>} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Login />} />
       <Route path="/AuthHome" element={<AuthHome />} />

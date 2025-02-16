@@ -21,12 +21,10 @@ function App() {
   setAuth(false);
 
   return (
-    <Router>
-      <AppRoutes/>
-      <div>
+
         <div className={classes.container}>
           {isMobile && <SideBar />}
-          <div className={classes.navbar}>
+          <div className={classes.navbarhome}>
             <div className={classes.titleversion}>
               <h1>Cat Posting</h1>
               <h4>v0.0.1</h4>
@@ -59,11 +57,7 @@ function App() {
               </a>
             </div>
           </div>
-          <div className={classes.maincontent}>
-          </div>
         </div>
-      </div>
-    </Router>
   );
 }
 
