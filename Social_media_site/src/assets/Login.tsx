@@ -1,15 +1,21 @@
 import { useState } from "react";
 import { Button, Input } from "@mantine/core";
 import classes from "./login.module.css";
+import { useNavigate } from "react-router-dom";
+import {
+    setCurrentUser,
+    setAuth,
+  } from './state';
 
-export default function Signup() {
+export default function Login() {
     const [username, setUsername] = useState<string>("");
     const [password, setPassword] = useState<string>("");
-    const [error, setError] = useState<string>("");
+    const [status, setStatus] = useState<string>("");
+    const navigate = useNavigate();
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e:any) => {
         e.preventDefault();
-        setError(""); // Clear any previous errors before submitting
+        setStatus(""); // Clear any previous errors before submitting
 
         try {
             const response = await fetch("http://localhost:5000/users/login", {
@@ -20,8 +26,21 @@ export default function Signup() {
 
             const result = await response.json();
 
+            console.log(result);
+
+            if(result.message === "Login successful"){
+                setStatus("Success"); // Show the correct error message
+                setCurrentUser(username);
+                setAuth(true);
+                setTimeout(() => navigate("/AuthHome"), 1000);
+            }
+
+            else{
+                setStatus("User does not exist or invalid password!"); // Show the correct error message
+            }
+
         } catch (err) {
-            setError("Fail"); // Show the correct error message
+            setStatus("Fail"); // Show the correct error message
             console.error("Error submitting post:", err);
         }
     };
@@ -47,7 +66,7 @@ export default function Signup() {
                 <Button type="submit">Login</Button>
 
                 {/* Display error message if it exists */}
-                {error && <p className={classes.error}>{error}</p>}
+                {status && <p className={classes.status}>{status}</p>}
             </form>
         </div>
     );

@@ -5,12 +5,8 @@ export default function Post({ post }) {
         <div className={classes.post}>
             {/* Post Header */}
             <div className={classes.postHeader}>
-                <img
-                    src=""
-                    alt="User"
-                    className={classes.profilePic}
-                />
-                <span className={classes.username}>{post.username}</span>
+                <span className={classes.username}>@{post.username}</span>
+                <span className={classes.username}>{post.title}</span>
             </div>
 
             {/* Post Image */}

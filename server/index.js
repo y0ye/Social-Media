@@ -14,11 +14,11 @@ const upload = multer({ dest: "uploads/" });
 // Create a post with image upload
 app.post("/posts", upload.single("photo"), async (req, res) => {
     try {
-        const { title, description } = req.body;
+        const { title, description, username } = req.body;
         const file = req.file;
 
-        if (!file) {
-            return res.status(400).json({ error: "No file uploaded" });
+        if (!file || file.mimetype === "image/tiff") {
+            return res.status(400).json({ error: "No file uploaded. Server error or unsupported type" });
         }
 
         // Upload file to AWS S3
@@ -31,8 +31,8 @@ app.post("/posts", upload.single("photo"), async (req, res) => {
 
         // Insert into database with AWS S3 file URL
         const newPost = await pool.query(
-            "INSERT INTO post (title, description, awslink) VALUES($1, $2, $3) RETURNING *",
-            [title, description, awslink]
+            "INSERT INTO post (title, description, awslink, username) VALUES($1, $2, $3, $4) RETURNING *",
+            [title, description, awslink, username]
         );
 
         res.json(newPost.rows[0]); // Return the created post

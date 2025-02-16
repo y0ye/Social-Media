@@ -1,45 +1,60 @@
 import { useState } from "react";
 import { Button, Input, FileInput } from "@mantine/core";
+import { useNavigate } from "react-router-dom";
 import classes from "./createpost.module.css";
+
+import {
+    useGlobalState,
+} from './state';
+
 
 export default function CreatePost() {
     const [title, setTitle] = useState("");
     const [photo, setPhoto] = useState<File | null>(null);
     const [description, setDescription] = useState("");
+    const [user] = useGlobalState('user');
+    const navigate = useNavigate();
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e: any) => {
         e.preventDefault();
-    
-        try {
-            const formData = new FormData();
-            formData.append("title", title);
-            formData.append("description", description);
-            
 
-            if (photo) {
-                console.log("Uploading photo:", photo);
-                formData.append("photo", photo, photo.name); // Ensure name is included
-            } else {
-                console.error("No photo selected!");
+        if (user.auth == true || user.username != "") {
+            try {
+                const formData = new FormData();
+                formData.append("title", title);
+                formData.append("description", description);
+                formData.append("username", user.username);
+
+                if (photo) {
+                    console.log("Uploading photo:", photo);
+                    formData.append("photo", photo, photo.name); // Ensure name is included
+                } else {
+                    console.error("No photo selected!");
+                }
+
+                // Debugging: Log FormData content
+                for (let [key, value] of formData.entries()) {
+                    console.log(`${key}:`, value);
+                }
+
+                const response = await fetch("http://localhost:5000/posts", {
+                    method: "POST",
+                    body: formData,
+                });
+
+                const result = await response.json();
+                console.log("Server Response:", result);
+                setTimeout(() => navigate("/AuthHome"), 1000);
+            } catch (err) {
+                console.error("Error submitting post:", err);
             }
-    
-            // Debugging: Log FormData content
-            for (let [key, value] of formData.entries()) {
-                console.log(`${key}:`, value);
-            }
-    
-            const response = await fetch("http://localhost:5000/posts", {
-                method: "POST",
-                body: formData, 
-            });
-    
-            const result = await response.json();
-            console.log("Server Response:", result);
-        } catch (err) {
-            console.error("Error submitting post:", err);
+        }
+        else{
+            console.log("Server Response: Failed to authenticate user");
+            setTimeout(() => navigate("/"), 1000);
         }
     };
-    
+
 
     return (
         <div className={classes.postcontainer}>

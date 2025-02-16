@@ -12,8 +12,8 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.error {
-    color: red;
-    font-size: 14px;
+.satus {
+    color:black;
+    font-size: 30px;
     margin-top: 10px;
 }

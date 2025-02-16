@@ -8,7 +8,7 @@ import {
   IconLogout,
   IconSettings,
 } from '@tabler/icons-react';
-import { Drawer, Button, DrawerTitle, DrawerContent, DrawerCloseButton, DrawerHeader, DrawerBody, CloseButton, ActionIcon } from '@mantine/core';
+import { Drawer, Button, DrawerTitle, DrawerContent, DrawerBody} from '@mantine/core';
 
 export default function SideBar() {
   const [active, setActive] = useState('Billing');

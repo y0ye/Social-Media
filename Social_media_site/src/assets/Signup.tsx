@@ -20,17 +20,16 @@ export default function Signup() {
 
             const result = await response
 
-            if (!response.ok) {
-                setError("Error- user exists"); // Show the correct error message
-                throw new Error("Error or User Already exists");
-            }
-            else{
+            if (response.ok) {
                 console.log("User successfully created:", result);
                 setUsername("");  // Clear username input
                 setPassword("");  // Clear password input
                 setError("Success");     // Clear error message
             }
 
+            else{
+                setError("Server Error or User Exists"); // Show the correct error message
+            }
         } catch (err) {
             setError("Server Error or User Exists"); // Show the correct error message
             console.error("Error submitting post:", err);

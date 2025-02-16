@@ -13,6 +13,8 @@
   width: 20%; /* Default width */
   transition: width 0.3s ease-in-out;
   min-width: 180px;
+  overflow-y: hidden;
+  max-height: 100vh;
 }
 
 .navbaroption{
@@ -67,6 +69,7 @@
 .postHeader {
   display: flex;
   align-items: center;
+  gap: 1rem;
   padding: 10px;
 }
 
