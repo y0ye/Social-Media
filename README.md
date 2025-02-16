@@ -25,6 +25,9 @@ A simple "Social Media" web-app. Allows for sign-up, login and image posting.
 		- Title, AWS access link, description, username all added to a "post" database entry
 - After post is created users are taken back to homepage, once they leave the homepage they are signed out
 
+## Video
+https://www.youtube.com/watch?v=8xlSnNd-Iz8
+
 ## Images
 ![screencapture-localhost-5173-2025-02-16-16_31_04](https://github.com/user-attachments/assets/b8a9e1b6-ad7b-46b5-a6aa-75795323c63d)
 ![screencapture-localhost-5173-signup-2025-02-16-16_31_27 (1)](https://github.com/user-attachments/assets/7850a4ee-f880-428f-a8e6-0e52acf76057)
