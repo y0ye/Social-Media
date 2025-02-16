@@ -4,9 +4,10 @@ Fun little personal project that I used to explore AWS S3 and build a simple Ful
 
 ## What I used
 
-**PERN Stack**: PostgreSQL, Express.js, ReactTS, Node.js
-**AWS**: S3 bucket for image hosting
-**REST API**: POST, GET, PUT, DELETE; communicates with Postgres db
+**PERN Stack**: PostgreSQL, Express.js, ReactTS, Node.js\
+**AWS**: S3 bucket for image hosting\
+**REST API**: POST, GET, PUT, DELETE; communicates with Postgres db\
+I also used Postman for testing.
 
 
 ## What is it?
