@@ -12,7 +12,7 @@ I also used Postman for testing.
 
 ## What is it?
 
-A simple "Social Media" web-app. Allows for sign-up, login and image posting. 
+A simple "Social Media" web-app. Allows for sign-up, login, image posting, and commenting. 
 
  - Users signup with a username and password
  	- Credentials put in "users" db table  
@@ -25,6 +25,7 @@ A simple "Social Media" web-app. Allows for sign-up, login and image posting.
 			- Only image types supported by chrome (ex. not tiff)
 		- Title, AWS access link, description, username all added to a "post" database entry
 - After post is created users are taken back to homepage, once they leave the homepage they are signed out
+- Users can comment on a post that was created
 
 ## Video
 https://www.youtube.com/watch?v=8xlSnNd-Iz8
