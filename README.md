@@ -17,7 +17,7 @@ A simple "Social Media" web-app. Allows for sign-up, login and image posting.
  - Users signup with a username and password 
  - Users login with their username and password
 	 - Authentication is handled with a global state
-		 - Definitely not the best way but its what I though of 
+		 - Definitely not the best way but its what I thought of 
 - Users then have access to create a post
 	- Title, image, and description
 		- Image sent to AWS
