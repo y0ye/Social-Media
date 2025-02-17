@@ -9,11 +9,76 @@
     width: 100%;
     max-width: 600px;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 15px 8px rgba(0, 0, 0, 0.2);
 }
 
-.satus {
-    color:black;
-    font-size: 30px;
-    margin-top: 10px;
+.login{
+    display: flex;
+    flex-direction: column;
+    gap:1rem;
+}
+
+.inputarea{
+    display: flex;
+    flex-direction: column;
+    gap:.25rem;
+}
+
+.status {
+    color:rgb(153, 153, 153);
+    font-size: 15px;
+    max-width: 25ch;
+    text-align: center;
+    margin:auto;
+}
+
+.status:hover{
+    color: rgb(0, 0, 0);
+}
+
+h2{
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    
+}
+
+.username{
+    width: 100%;
+
+    Input{
+        max-width: 50ch;
+        text-align: center;
+        margin:auto;
+    }
+
+    Input:focus{
+        background-color: rgba(255, 255, 255, 0.5);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+}
+
+.password{
+    width: 100%;
+    Input{
+        max-width: 50ch;
+        text-align: center;
+        margin:auto;
+    }
+
+    Input:focus{
+        background-color: rgba(255, 255, 255, 0.5);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+}
+
+Button{
+    align-self: center;
+}
+
+.logincat{
+    margin: auto;
+    position: absolute;
+    top:-120px;
+    left:400px;
 }

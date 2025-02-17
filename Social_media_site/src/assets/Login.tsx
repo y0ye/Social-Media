@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import {
     setCurrentUser,
     setAuth,
-  } from './state';
+} from './state';
 
 export default function Login() {
     const [username, setUsername] = useState<string>("");
@@ -13,7 +13,7 @@ export default function Login() {
     const [status, setStatus] = useState<string>("");
     const navigate = useNavigate();
 
-    const handleSubmit = async (e:any) => {
+    const handleSubmit = async (e: any) => {
         e.preventDefault();
         setStatus(""); // Clear any previous errors before submitting
 
@@ -28,14 +28,14 @@ export default function Login() {
 
             console.log(result);
 
-            if(result.message === "Login successful"){
+            if (result.message === "Login successful") {
                 setStatus("Success"); // Show the correct error message
                 setCurrentUser(username);
                 setAuth(true);
                 setTimeout(() => navigate("/AuthHome"), 1000);
             }
 
-            else{
+            else {
                 setStatus("User does not exist or invalid password!"); // Show the correct error message
                 setTimeout(() => navigate("/"), 1000);
             }
@@ -47,22 +47,27 @@ export default function Login() {
     };
 
     return (
+
         <div className={classes.logincontainer}>
             <form className={classes.login} onSubmit={handleSubmit}>
-                <div className={classes.username}>
-                    <Input
-                        value={username}
-                        placeholder="Enter Username"
-                        onChange={(e) => setUsername(e.target.value)}
-                    />
-                </div>
-                <div className={classes.password}>
-                    <Input
-                        value={password}
-                        type="password"
-                        placeholder="Enter Password"
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
+                <h2>Login</h2>
+                <div className={classes.inputarea}>
+                    <div className={classes.username}>
+                    <img className={classes.logincat}src="/src/assets/images/catLogin.png"></img>
+                        <Input
+                            value={username}
+                            placeholder="Enter Username"
+                            onChange={(e) => setUsername(e.target.value)}
+                        />
+                    </div>
+                    <div className={classes.password}>
+                        <Input
+                            value={password}
+                            type="password"
+                            placeholder="Enter Password"
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                    </div>
                 </div>
                 <Button type="submit">Login</Button>
 
