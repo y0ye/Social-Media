@@ -150,6 +150,36 @@ app.post("/users", async (req, res) => {
     }
 })
 
+app.post("/comments", async (req, res) => {
+    try{
+        const { message, user_id, post_id } = req.body;
+
+        const newComment = await pool.query(
+            "INSERT INTO comments (message, user_id, post_id) VALUES($1, $2, $3) RETURNING *",
+            [message, user_id, post_id]
+        );
+
+        return res.json(newComment.rows[0]); // Return the created comment
+    } catch (err) {
+        console.error("Error creating comment:", err.message);
+        return res.status(500).json({ error: "Internal Server Error" });
+    }
+})
+
+app.get("/comments/:id", async (req,res) =>{
+    try{
+        const {id} = req.params;
+        const post = await pool.query(
+            "SELECT * FROM comments WHERE post_id = $1",
+             [id]
+        );
+
+        res.json(post.rows);
+    }
+    catch (err){
+        console.log(err.message);
+    }
+})
 
 
 

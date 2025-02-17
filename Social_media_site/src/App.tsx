@@ -1,4 +1,4 @@
-import { useState } from 'react';  // Import useEffect here
+import { useEffect, useState } from 'react';  // Import useEffect here
 import SideBar from './assets/SideBar.tsx';
 import classes from './App.module.css';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
@@ -10,6 +10,7 @@ import {
 import {
   setAuth,
   setCurrentUser,
+  setFocus,
 } from './assets/state';
 
 import AppRoutes from './routes.tsx';
@@ -17,8 +18,12 @@ import AppRoutes from './routes.tsx';
 function App() {
   const isMobile = window.screen.width <= 520;
   const [active, setActive] = useState('Billing');
-  setCurrentUser("");
-  setAuth(false);
+  
+  useEffect(() => {
+    setCurrentUser("");
+    setAuth(false);
+    setFocus(0);
+  }, []);
 
   return (
 
@@ -27,7 +32,7 @@ function App() {
       <div className={classes.navbarhome}>
         <div className={classes.titleversion}>
           <h1>Cat Posting</h1>
-          <h4>v0.0.1</h4>
+          <h4>v0.1.0</h4>
         </div>
         <div className={classes.navbaroption}>
           <a
