@@ -33,6 +33,6 @@ https://www.youtube.com/watch?v=8xlSnNd-Iz8
 ![image](https://github.com/user-attachments/assets/6fc55308-dab4-4a5e-9dcf-c301be0fa05b)
 ![image](https://github.com/user-attachments/assets/f48e3ed4-2099-47d3-b604-c35ace67d3e4)
 ![image](https://github.com/user-attachments/assets/d2f62ed6-06c7-4366-a571-7e31a005ab95)
-![screencapture-localhost-5173-AuthHome-2025-02-16-16_32_23](https://github.com/user-attachments/assets/3d5ab586-4a4c-42ab-be1f-fafc5797d736)
 ![screencapture-localhost-5173-CreatePost-2025-02-16-16_33_09](https://github.com/user-attachments/assets/e2ceecae-9bb6-469a-93e1-9c918cb270be)
-![screencapture-localhost-5173-AuthHome-2025-02-16-16_33_20](https://github.com/user-attachments/assets/d41f5a80-aefb-419d-ba09-ff60ccfddce0)
+![image](https://github.com/user-attachments/assets/ad5ce299-9ebe-4cf8-836a-2c9b7f86f5fc)
+![image](https://github.com/user-attachments/assets/c751a500-4894-487e-9ceb-a33c25f88537)
