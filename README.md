@@ -1,6 +1,6 @@
 # Cat-Posting
 
-Fun little personal project that I used to explore AWS S3 and build a simple Full-Stack project.
+Fun little personal project that I used to explore AWS S3 and build a simple Full-Stack project. Still want to spend alot of time on it!
 
 ## What I used
 
