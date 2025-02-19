@@ -5,6 +5,7 @@ const { setGlobalState, useGlobalState } = createGlobalState({
     username: '',
     postFocus: 0,
     auth: false,
+    commentStatus: false,
   },
 });
 
@@ -18,6 +19,10 @@ export const setAuth = (auth: boolean) => {
 
 export const setFocus = (postFocus: number) => {
     setGlobalState('user', (v) => ({ ...v, postFocus }));
-} 
+}
+
+export const setCommentStatus = (commentStatus: boolean) => {
+    setGlobalState('user', (v) => ({...v, commentStatus}))
+}
 
 export { useGlobalState };

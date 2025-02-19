@@ -59,6 +59,7 @@ export default function CreatePost() {
     return (
         <div className={classes.postcontainer}>
             <form className={classes.post} onSubmit={handleSubmit}>
+                <img className={classes.logincat} src= '/src/assets/images/catPost.png'></img>
                 <div className={classes.toppost}>
                     <Input
                         value={title}

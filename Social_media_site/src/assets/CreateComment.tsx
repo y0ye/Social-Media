@@ -33,7 +33,7 @@ export default function CreateComment() {
 
                 console.log("Server Response:", result);
                 setFocus(0);
-                setTimeout(() => navigate("/AuthHome"), 1000);
+                setTimeout(() => navigate("/AuthHome"), 500);
             } catch (err) {
                 console.error("Error creating comment:", err);
             }
@@ -48,6 +48,8 @@ export default function CreateComment() {
     return (
         <div className={classes.commentcontainer}>
             <form className={classes.comment} onSubmit={handleSubmit}>
+            <img className={classes.logincat}src="/src/assets/images/catComment.png"></img>
+
                 <div className={classes.bottomcomment}>
                     <Input
                         value={message}

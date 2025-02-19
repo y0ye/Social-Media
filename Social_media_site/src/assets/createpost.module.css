@@ -9,7 +9,7 @@
     width: 100%;
     max-width: 600px;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 15px 8px rgba(0, 0, 0, 0.2);
 
 }
 
@@ -28,4 +28,11 @@
     text-align: center;
     padding-bottom: 0.5rem; /* Adds spacing below */
     border-bottom: 2px solid rgba(0, 0, 0, 0.2); /* Separator for clarity */
+}
+
+.logincat{
+    margin: auto;
+    position: absolute;
+    top:-120px;
+    left:400px;
 }
