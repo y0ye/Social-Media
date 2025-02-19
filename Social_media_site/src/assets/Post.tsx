@@ -19,16 +19,6 @@ export default function Post({ post }) {
                 className={classes.postImage}
             />
 
-            {/* Post Actions */}
-            <div className={classes.postActions}>
-                <button className={classes.actionBtn}>❤️</button>
-                <button className={classes.actionBtn}>💬</button>
-                <button className={classes.actionBtn}>🔖</button>
-            </div>
-
-            {/* Likes Count */}
-            <div className={classes.likesCount}>{post.likes} likes</div>
-
             {/* Post Description */}
             <div className={classes.postDescription}>
                 <span className={classes.boldText}>{post.username}</span> {post.description}

@@ -1,0 +1,89 @@
+.navbar {
+    height: 700px;
+    padding: var(--mantine-spacing-md);
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    border-right: 1px solid light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
+  }
+  
+  .navbarMain {
+    flex: 1;
+    a{
+        margin:1rem;
+    }
+  }
+  
+  .header {
+    width:min-content;
+    display: flex;
+    flex-direction: column;
+    img{
+        margin:0;
+        padding:0;
+    }
+    h3{
+        margin:0;
+    }
+    code{
+        align-self: center;
+        margin-bottom: 1rem;
+        background-color: white;
+        border-radius: 3rem;
+        max-width: 15ch;
+        min-width: 10ch;
+    }
+  }
+  
+  .footer {
+    margin-inline: 0;
+    padding-top: 1rem;
+    padding-left: 1rem;
+    width: 20ch;
+    border-top: 1px solid light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
+  }
+  
+  .link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: var(--mantine-font-size-sm);
+    color: light-dark(var(--mantine-color-gray-7), var(--mantine-color-dark-1));
+    gap:.5rem;
+    border-radius: var(--mantine-radius-sm);
+    font-weight: 500;
+  
+    @mixin hover {
+      background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-6));
+      color: light-dark(var(--mantine-color-black), var(--mantine-color-white));
+  
+      .linkIcon {
+        color: light-dark(var(--mantine-color-black), var(--mantine-color-white));
+      }
+    }
+  
+    &[data-active] {
+      &,
+      &:hover {
+        margin-inline: 0;
+        padding-left: 1rem;
+        width: 20ch;
+        background-color:rgba(255, 255, 255, 0.6);
+  
+        .linkIcon {
+          color: var(--mantine-color-blue-light-color);
+        }
+      }
+    }
+  }
+  
+  .linkIcon {
+    color: light-dark(var(--mantine-color-gray-6), var(--mantine-color-dark-2));
+    margin-right: var(--mantine-spacing-sm);
+    width: 25px;
+    height: 25px;
+  }
+
+  .logo{
+    width:10rem;
+  }

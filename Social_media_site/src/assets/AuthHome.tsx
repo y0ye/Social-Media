@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Routes, Route, Link, useNavigate, Navigate } f
 import Post from "./Post.tsx";
 import SideBar from "./SideBar.tsx";
 import classes from "./auth.module.css";
-import { IconFlame, IconDatabaseImport, IconLogout, IconSettings } from "@tabler/icons-react";
 import { useGlobalState } from "./state.ts";
+import { NewNavAuth } from "./NewNavAuth.tsx";
 
 // Mock Data for Initial State
 const mockPosts = [
@@ -54,31 +54,7 @@ function App() {
     <div className={classes.containerauth}>
       {isMobile && <SideBar />}
       <div className={classes.navbar}>
-        <div className={classes.titleversion}>
-          <h1>Cat Posting</h1>
-          <h4>v0.0.1</h4>
-        </div>
-        <div className={classes.navbaroption}>
-          <Link className={classes.link} to="/AuthHome" onClick={() => setActive("Home")} data-active={active === "Home"}>
-            <IconFlame className={classes.linkIcon} stroke={1.5} />
-            Home
-          </Link>
-
-          <Link className={classes.link} to="/CreatePost" onClick={() => setActive("Create Post")} data-active={active === "Create Post"}>
-            <IconDatabaseImport className={classes.linkIcon} stroke={1.5} />
-            Create Post
-          </Link>
-
-          <Link className={classes.link} to="/Settings" onClick={() => setActive("Settings")} data-active={active === "Settings"}>
-            <IconSettings className={classes.linkIcon} stroke={1.5} />
-            Settings
-          </Link>
-
-          <Link className={classes.link} to="/" onClick={() => setActive("Logout")} data-active={active === "Logout"}>
-            <IconLogout className={classes.linkIcon} stroke={1.5} />
-            Logout
-          </Link>
-        </div>
+        <NewNavAuth/>
       </div>
       <div className={classes.maincontent}>
         {posts.map((post) => (
