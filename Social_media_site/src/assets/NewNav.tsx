@@ -1,19 +1,15 @@
 import { useState } from 'react';
 import {
-  IconBellRinging,
-  IconDatabaseImport,
-  IconFingerprint,
-  IconLogout,
-  IconSettings,
-  IconUserSquareRounded
-} from '@tabler/icons-react';
+  TbFingerprint,
+  TbLogout,
+  TbUserSquareRounded
+} from 'react-icons/tb';
 import classes from './NavbarSimple.module.css';
-import { Navigate, useNavigate } from 'react-router-dom';
-import AppRoutes from '../routes';
+import { useNavigate } from 'react-router-dom';
 
 const data = [
-  { link: '', label: 'Sign Up', icon: IconUserSquareRounded },
-  { link: '', label: 'Login', icon: IconFingerprint },
+  { link: '', label: 'Sign Up', icon: TbUserSquareRounded },
+  { link: '', label: 'Login', icon: TbFingerprint },
 ];
 
 export function NewNav() {
@@ -32,7 +28,7 @@ export function NewNav() {
         navigate(item.label);
       }}
     >
-      <item.icon className={classes.linkIcon} stroke={1.5} />
+      <item.icon className={classes.linkIcon}/>
       <span>{item.label}</span>
     </a>
   ));
@@ -50,7 +46,7 @@ export function NewNav() {
 
       <div className={classes.footer}>
         <a href="#" className={classes.link} onClick={(event) => event.preventDefault()}>
-          <IconLogout className={classes.linkIcon} stroke={1.5} />
+          <TbLogout className={classes.linkIcon}/>
           <span>Logout</span>
         </a>
       </div>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';  // Import useEffect here
+import { useEffect } from 'react';  // Import useEffect here
 import SideBar from './assets/SideBar.tsx';
 import classes from './App.module.css';
 import {

@@ -2,12 +2,12 @@ import { useDisclosure } from '@mantine/hooks';
 import classes from '../App.module.css'
 import { useState } from 'react';
 import {
-  IconFlame,
-  IconDatabaseImport,
-  IconLock,
-  IconLogout,
-  IconSettings,
-} from '@tabler/icons-react';
+  TbFlame,
+  TbDatabaseImport,
+  TbLock,
+  TbLogout,
+  TbSettings,
+} from 'react-icons/tb';
 import { Drawer, Button, DrawerTitle, DrawerContent, DrawerBody} from '@mantine/core';
 
 export default function SideBar() {
@@ -56,7 +56,7 @@ export default function SideBar() {
                 setActive('Home');
               }}
             >
-              <IconFlame className={classes.linkIcon} stroke={1.5} />
+              <TbFlame className={classes.linkIcon}/>
               <span>Home</span>
             </a>
 
@@ -69,7 +69,7 @@ export default function SideBar() {
                 setActive('Security');
               }}
             >
-              <IconLock className={classes.linkIcon} stroke={1.5} />
+              <TbLock className={classes.linkIcon}/>
               <span>Security</span>
             </a>
 
@@ -82,7 +82,7 @@ export default function SideBar() {
                 setActive('Create Post');
               }}
             >
-              <IconDatabaseImport className={classes.linkIcon} stroke={1.5} />
+              <TbDatabaseImport className={classes.linkIcon}/>
               <span>Create Post</span>
             </a>
 
@@ -95,7 +95,7 @@ export default function SideBar() {
                 setActive('Settings');
               }}
             >
-              <IconSettings className={classes.linkIcon} stroke={1.5} />
+              <TbSettings className={classes.linkIcon}/>
               <span>Settings</span>
             </a>
 
@@ -108,7 +108,7 @@ export default function SideBar() {
                 setActive('Logout');
               }}
             >
-              <IconLogout className={classes.linkIcon} stroke={1.5} />
+              <TbLogout className={classes.linkIcon}/>
               <span>Logout</span>
             </a>
           </DrawerBody>

@@ -1,10 +1,6 @@
 import classes from './comment.module.css';
-import { useGlobalState } from './state';
-import { useEffect, useState } from 'react';
-
 
 export default function Comment({ comment }) {
-  const [user] = useGlobalState('user');
 
   return (
     <div className={classes.commentcontainer}>
